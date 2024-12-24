@@ -1,27 +1,26 @@
-name: Publish to GitHub Packages
+name: Publish to GitHub Packages and npm
 
 on:
   push:
     branches:
-      - main   # or the branch you want to trigger on
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
     
     steps:
-      # Check out the repository code
+    
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Set up Node.js environment
+      
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # or the version you're using
-          registry-url: https://npm.pkg.github.com
+          node-version: '16'
+          registry-url: https://registry.npmjs.org
 
-      # Cache node modules to speed up builds
       - name: Cache node modules
         uses: actions/cache@v3
         with:
@@ -30,37 +29,40 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-modules-
 
-      # Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Run linting (optional, can be removed if not needed)
-      - name: Lint code
-        run: npm run lint
+      - name: Lint and format check
+        run: |
+          npm run lint
+          npm run format:check
 
-      # Run tests (optional, can be removed if not needed)
       - name: Run tests
         run: npm test
 
-      # Build the project
       - name: Build project
         run: npm run build
 
-      # Configure Git user for versioning
       - name: Configure Git user
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
 
-      # Publish the package to GitHub Packages
       - name: Publish package to GitHub Packages
         run: |
           npm version patch # Increment the patch version
+          npm config set registry https://npm.pkg.github.com  # Set GitHub registry
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Required for GitHub Packages authentication
 
-      # Create a GitHub release (optional)
+      - name: Publish package to npm
+        run: |
+          npm config set registry https://registry.npmjs.org  # Set npm registry
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Create GitHub release
         id: create_release
         run: |
