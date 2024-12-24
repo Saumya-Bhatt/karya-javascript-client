@@ -4,7 +4,11 @@ on:
   push:
     branches:
       - main  # This will trigger the workflow on pushes to the main branch.
+    paths:
+      - 'src/**'
   pull_request:
+    paths:
+      - 'src/**'
     branches:
       - main  # This will trigger the workflow when a PR is merged into main.
 

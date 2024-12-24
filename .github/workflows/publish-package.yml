@@ -1,9 +1,9 @@
-name: Publish Package and Create Release
+name: Publish to GitHub Packages
 
 on:
   push:
     branches:
-      - main
+      - main   # or the branch you want to trigger on
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Or whatever version of Node.js you are using
+          node-version: '16'  # or the version you're using
           registry-url: https://npm.pkg.github.com
 
       # Cache node modules to speed up builds
@@ -46,24 +46,19 @@ jobs:
       - name: Build project
         run: npm run build
 
-      # Publish package to GitHub Packages
+      # Publish the package to GitHub Packages
       - name: Publish package to GitHub Packages
         run: |
           npm version patch # Increment the patch version
           npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Required for GitHub Packages authentication
 
-      # Create a GitHub release
+      # Create a GitHub release (optional)
       - name: Create GitHub release
         id: create_release
         run: |
           VERSION=$(node -p -e "require('./package.json').version")
           gh release create $VERSION dist/* --title "Release $VERSION" --notes "Release version $VERSION"
-
-      # Optionally, attach build artifacts to the release
-      - name: Attach build artifacts to release
-        if: success() && github.event_name == 'release'
-        run: |
-          VERSION=$(node -p -e "require('./package.json').version")
-          gh release upload $VERSION dist/* --clobber
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
