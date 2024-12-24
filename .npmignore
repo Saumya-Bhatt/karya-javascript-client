@@ -1,0 +1,12 @@
+# Exclude source code and tests
+src/
+samples/
+.github/
+
+# Exclude configuration files
+.eslintrc.json
+tsconfig.json
+typedoc.json
+package-lock.json
+.prettierrc
+.prettierignore
