@@ -40,8 +40,8 @@ jobs:
 
       - name: Move dist/karya to root
         run: |
-          mv dist/karya/* .
-          rm -rf dist/karya
+          mv dist/* .
+          rm -rf dist
 
       # Configure Git user for versioning
       - name: Configure Git user for versioning
