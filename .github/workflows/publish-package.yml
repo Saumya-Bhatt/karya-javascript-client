@@ -1,0 +1,69 @@
+name: Publish Package and Create Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Check out the repository code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # Or whatever version of Node.js you are using
+          registry-url: https://npm.pkg.github.com
+
+      # Cache node modules to speed up builds
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Run linting (optional, can be removed if not needed)
+      - name: Lint code
+        run: npm run lint
+
+      # Run tests (optional, can be removed if not needed)
+      - name: Run tests
+        run: npm test
+
+      # Build the project
+      - name: Build project
+        run: npm run build
+
+      # Publish package to GitHub Packages
+      - name: Publish package to GitHub Packages
+        run: |
+          npm version patch # Increment the patch version
+          npm publish --access public
+
+      # Create a GitHub release
+      - name: Create GitHub release
+        id: create_release
+        run: |
+          VERSION=$(node -p -e "require('./package.json').version")
+          gh release create $VERSION dist/* --title "Release $VERSION" --notes "Release version $VERSION"
+
+      # Optionally, attach build artifacts to the release
+      - name: Attach build artifacts to release
+        if: success() && github.event_name == 'release'
+        run: |
+          VERSION=$(node -p -e "require('./package.json').version")
+          gh release upload $VERSION dist/* --clobber
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
