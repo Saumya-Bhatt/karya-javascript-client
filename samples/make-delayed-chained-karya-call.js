@@ -1,8 +1,8 @@
-import { ClientConfig } from '../client/config.js';
-import { KaryaRestClient } from '../client/karya-rest-client.js';
-import { CreateUserRequest, SubmitPlanRequest } from '../client/requests.js';
-import { ChainedRequest, RestApiRequest } from '../entities/actions.js';
-import { OneTime, Recurring } from '../entities/plan-types.js';
+import { ClientConfig } from '../dist/karya/client/config.js';
+import { KaryaRestClient } from '../dist/karya/client/karya-rest-client.js';
+import { CreateUserRequest, SubmitPlanRequest } from '../dist/karya/client/requests.js';
+import { ChainedRequest, RestApiRequest } from '../dist/karya/entities/actions.js';
+import { OneTime, Recurring } from '../dist/karya/entities/plan-types.js';
 
 const config = ClientConfig.dev();
 const client = new KaryaRestClient(config);

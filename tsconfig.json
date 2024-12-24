@@ -11,12 +11,14 @@
     "baseUrl": "./",
     "paths": {
       "karya/*": [
-        "src/karya/*"
+        "src/karya/*",
+        "samples/*"
       ]
     }
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "samples/*"
   ],
   "exclude": [
     "node_modules"

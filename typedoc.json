@@ -1,0 +1,19 @@
+{
+    "entryPoints": [
+        "src/**/*.ts"
+    ],
+    "entryPointStrategy": "packages",
+    "out": "docs",
+    "name": "Karya JavaScript Client",
+    "excludePrivate": true,
+    "excludeProtected": true,
+    "theme": "default",
+    "readme": "README.md",
+    "includeVersion": true,
+    "categorizeByGroup": true,
+    "searchInComments": true,
+    "plugin": [
+        "typedoc-plugin-markdown"
+    ],
+    "githubPages": true
+}
