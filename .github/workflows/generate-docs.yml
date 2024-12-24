@@ -1,0 +1,40 @@
+name: Generate Docs and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # This will trigger the workflow on pushes to the main branch.
+  pull_request:
+    branches:
+      - main  # This will trigger the workflow when a PR is merged into main.
+
+jobs:
+  generate-and-deploy-docs:
+    runs-on: ubuntu-latest
+    steps:
+    
+    # Step 1: Checkout the code
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    # Step 2: Set up Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # Adjust the version based on your project needs
+    
+    # Step 3: Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Step 4: Generate the documentation using TypeDoc
+    - name: Generate docs
+      run: npm run docs  # Make sure your package.json has the "docs" script
+
+    # Step 5: Deploy to GitHub Pages
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages  # Deploy to the `gh-pages` branch
+        folder: docs      # The folder that contains your generated docs
+        token: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub's token for authentication
