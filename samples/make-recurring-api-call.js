@@ -1,4 +1,3 @@
-import { ClientConfig } from '../dist/karya/client/config.js';
 import { KaryaRestClient } from '../dist/karya/client/karya-rest-client.js';
 import { CreateUserRequest, SubmitPlanRequest } from '../dist/karya/client/requests.js';
 import { RestApiRequest } from '../dist/karya/entities/actions.js';
