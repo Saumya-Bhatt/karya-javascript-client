@@ -3,7 +3,7 @@
         "src/**/*.ts"
     ],
     "out": "docs",
-    "name": "Karya JavaScript Client",
+    "name": "Karya Client",
     "excludePrivate": true,
     "excludeProtected": true,
     "theme": "default",

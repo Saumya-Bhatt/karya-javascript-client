@@ -7,10 +7,12 @@ on:
     paths:
       - 'src/**'
       - package.json
+      - typedoc.json
   pull_request:
     paths:
       - 'src/**'
       - package.json
+      - typedoc.json
     branches:
       - main
 jobs:

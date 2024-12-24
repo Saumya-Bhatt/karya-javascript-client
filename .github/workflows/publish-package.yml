@@ -3,7 +3,10 @@ name: Publish to npm
 on:
   push:
     branches:
-      - main  # Trigger on `main` or any branch of your choice
+      - main
+    paths:
+      - 'src/**'
+      - package.json
 
 jobs:
   build:
