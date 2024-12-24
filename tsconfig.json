@@ -18,7 +18,6 @@
   },
   "include": [
     "src/**/*",
-    "samples/*"
   ],
   "exclude": [
     "node_modules"
