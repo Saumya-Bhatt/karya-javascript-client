@@ -47,7 +47,6 @@ jobs:
       # Publish to npm
       - name: Publish package to npm
         run: |
-          npm version patch  # Bump the version (you can change 'patch' to 'minor' or 'major' if needed)
           npm publish --access public  # Publish to npm registry
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
