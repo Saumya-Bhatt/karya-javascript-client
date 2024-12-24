@@ -38,6 +38,11 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Move dist/karya to root
+        run: |
+          mv dist/karya/* .
+          rm -rf dist/karya
+
       # Configure Git user for versioning
       - name: Configure Git user for versioning
         run: |

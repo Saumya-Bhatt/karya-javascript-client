@@ -1,10 +1,10 @@
-import { ClientConfig } from '../dist/karya/client/config.js';
-import { KaryaRestClient } from '../dist/karya/client/karya-rest-client.js';
-import { CreateUserRequest, SubmitPlanRequest } from '../dist/karya/client/requests.js';
-import { RestApiRequest } from '../dist/karya/entities/actions.js';
-import { Trigger } from '../dist/karya/entities/constants.js';
-import { OneTime } from '../dist/karya/entities/plan-types.js';
-import { Hook } from '../dist/karya/entities/models.js';
+import { ClientConfig } from '../dist/client/config.js';
+import { KaryaRestClient } from '../dist/client/karya-rest-client.js';
+import { CreateUserRequest, SubmitPlanRequest } from '../dist/client/requests.js';
+import { RestApiRequest } from '../dist/entities/actions.js';
+import { Trigger } from '../dist/entities/constants.js';
+import { OneTime } from '../dist/entities/plan-types.js';
+import { Hook } from '../dist/entities/models.js';
 
 // Create and configure the Karya REST client instance
 const config = ClientConfig.dev();  // Configuration for local development environment

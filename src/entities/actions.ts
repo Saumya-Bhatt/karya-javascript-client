@@ -1,5 +1,5 @@
 import { AbstractAction, AbstractBody } from './abstracts.js';
-import { SubmitPlanRequest } from 'karya/client/requests.js';
+import { SubmitPlanRequest } from 'src/client/requests.js';
 import { Protocol, Method } from './constants.js';
 
 /**

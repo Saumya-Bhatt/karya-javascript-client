@@ -1,8 +1,8 @@
-import { ClientConfig } from '../dist/karya/client/config.js';
-import { KaryaRestClient } from '../dist/karya/client/karya-rest-client.js';
-import { CreateUserRequest, SubmitPlanRequest } from '../dist/karya/client/requests.js';
-import { ChainedRequest, RestApiRequest } from '../dist/karya/entities/actions.js';
-import { OneTime, Recurring } from '../dist/karya/entities/plan-types.js';
+import { ClientConfig } from '../dist/client/config.js';
+import { KaryaRestClient } from '../dist/client/karya-rest-client.js';
+import { CreateUserRequest, SubmitPlanRequest } from '../dist/client/requests.js';
+import { ChainedRequest, RestApiRequest } from '../dist/entities/actions.js';
+import { OneTime, Recurring } from '../dist/entities/plan-types.js';
 
 // Create and configure the Karya REST client instance
 const config = ClientConfig.dev();  // Configuration for local development environment

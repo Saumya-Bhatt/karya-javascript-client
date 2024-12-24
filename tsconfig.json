@@ -9,12 +9,12 @@
     "strict": true,
     "skipLibCheck": true,
     "baseUrl": "./",
-    "paths": {
-      "karya/*": [
-        "src/karya/*",
-        "samples/*"
-      ]
-    }
+    // "paths": {
+    //   "karya/*": [
+    //     "src/karya/*",
+    //     "samples/*"
+    //   ]
+    // }
   },
   "include": [
     "src/**/*",

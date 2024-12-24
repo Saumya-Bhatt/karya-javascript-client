@@ -1,6 +1,6 @@
 {
   "name": "karya-client",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Javascript client to interract with Karya, the open sourced distributed job scheduler",
   "type": "module",
   "scripts": {
@@ -27,8 +27,5 @@
     "prettier": "^3.4.2",
     "typedoc": "^0.27.5",
     "typescript": "^5.7.2"
-  },
-  "files": [
-    "dist/karya"
-  ]
+  }
 }
