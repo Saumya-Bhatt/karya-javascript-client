@@ -3,15 +3,16 @@ name: Generate Docs and Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # This will trigger the workflow on pushes to the main branch.
+      - main
     paths:
       - 'src/**'
+      - package.json
   pull_request:
     paths:
       - 'src/**'
+      - package.json
     branches:
-      - main  # This will trigger the workflow when a PR is merged into main.
-
+      - main
 jobs:
   generate-and-deploy-docs:
     runs-on: ubuntu-latest

@@ -28,7 +28,7 @@ A list of samples to configure different plans with various actions and hooks ca
 1. Create a config object:
 
    ```javascript
-   import { ClientConfig } from 'karya-client';
+    import { ClientConfig } from 'karya-client/client/config.js';
 
    ## point this to where the Karya server is running
    const config = new ClientConfig({
@@ -43,7 +43,7 @@ A list of samples to configure different plans with various actions and hooks ca
 2. Create a client object:
 
    ```javascript
-    import { KaryaRestClient } from 'karya-client';
+    import { KaryaRestClient } from 'karya-client/client/karya-rest-client.js';
 
     const client = new KaryaRestClient(config);
     ```
@@ -51,7 +51,7 @@ A list of samples to configure different plans with various actions and hooks ca
 3. Creat a user. Only a user configured in the Karya server can be used to create a client object.
 
     ```javascript
-    import { CreateUserRequest } from 'karya-client';
+    import { CreateUserRequest } from 'karya-client/client/requests.js';
     
     const create_user_request = new CreateUserRequest({name: "javascript-client"});
     const user = await client.create_user(create_user_request);
@@ -60,6 +60,8 @@ A list of samples to configure different plans with various actions and hooks ca
 4. Specify the action that you would want to trigger once the task is scheduled.
 
     ```javascript
+    import { RestApiRequest } from 'karya-client/entities/actions.js';
+    import { Protocol, Method } from 'karya-client/entities/constants.js';
 
     const restAction = new RestApiRequest(
     'localhost', // The base URL for the REST API request
@@ -76,6 +78,9 @@ A list of samples to configure different plans with various actions and hooks ca
    > `period_time` has to be in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) format.
 
    ```javascript
+    import { SubmitPlanRequest } from 'karya-client/client/requests.js';
+    import { Recurring } from 'karya-client/entities/plan-types.js';
+
    const request = new SubmitPlanRequest(
         user.id, // The user ID for the plan
         'recurring api plan', // The description of the plan

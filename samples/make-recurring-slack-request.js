@@ -1,8 +1,8 @@
-import { ClientConfig } from '../dist/client/config.js';
-import { KaryaRestClient } from '../dist/client/karya-rest-client.js';
-import { CreateUserRequest, SubmitPlanRequest } from '../dist/client/requests.js';
-import { SlackMessageRequest } from '../dist/entities/actions.js';
-import { Recurring } from '../dist/entities/plan-types.js';
+import { ClientConfig } from 'karya-client/client/config.js';
+import { KaryaRestClient } from 'karya-client/client/karya-rest-client.js';
+import { CreateUserRequest, SubmitPlanRequest } from 'karya-client/client/requests.js';
+import { SlackMessageRequest } from 'karya-client/entities/actions.js';
+import { Recurring } from 'karya-client/entities/plan-types.js';
 
 // Initialize the configuration for the Karya API client
 const config = ClientConfig.dev(); // Use development configuration (local environment setup)
