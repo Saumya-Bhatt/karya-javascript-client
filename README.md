@@ -13,6 +13,8 @@ This section highlights the steps to get started with the Karya Python client.
 
 ### Installation
 
+Download the client as a dependency from [npm](https://www.npmjs.com/package/karya-client)
+
 ```shell
     npm install karya-client
 ```
