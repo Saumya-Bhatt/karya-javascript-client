@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from 'axios';
 import { ClientConfig } from './config.js';
 import { User, Plan } from '../entities/models.js';
 import { SubmitPlanRequest, CreateUserRequest, UpdatePlanRequest } from './requests.js';
-import { GetPlanResponse, GetSummaryResponse } from './responses.js';
+import { GetPlanResponse, GetSummaryResponse, ListPlanResponse } from './responses.js';
 
 /**
  * Represents the Karya API client for interacting with the Karya REST API.
@@ -118,7 +118,7 @@ export class KaryaRestClient {
    * @param page - The page number of the results to retrieve.
    * @returns A promise that resolves to a list of plans for the user.
    */
-  async listPlans(userId: string, page: number): Promise<Plan[]> {
+  async listPlans(userId: string, page: number): Promise<ListPlanResponse> {
     const url = `${this.baseUrl}/${KaryaRestClient._plansEndpoint}`;
     const params = { user_id: userId, page: page.toString() };
     const response = await this.client.get(url, { params });
