@@ -9,17 +9,17 @@ export class GetPlanResponse {
   plan: Plan;
 
   /** The latest task associated with the plan. */
-  latestTask: Task;
+  latest_task: Task;
 
   /**
    * Creates an instance of the `GetPlanResponse` class.
    * @param data - The data containing the plan and the latest task.
    * @param data.plan - The plan that is being returned in the response.
-   * @param data.latestTask - The latest task associated with the plan.
+   * @param data.latest_task - The latest task associated with the plan.
    */
-  constructor(data: { plan: Plan; latestTask: Task }) {
+  constructor(data: { plan: Plan; latest_task: Task }) {
     this.plan = data.plan;
-    this.latestTask = data.latestTask;
+    this.latest_task = data.latest_task;
   }
 }
 
@@ -35,18 +35,18 @@ export class GetSummaryResponse {
   tasks: Task[];
 
   /** A list of error logs associated with the plan or its tasks. */
-  errorLogs: ErrorLog[];
+  error_logs: ErrorLog[];
 
   /**
    * Creates an instance of the `GetSummaryResponse` class.
    * @param data - The data containing the plan, tasks, and error logs.
    * @param data.plan - The plan being returned in the response.
    * @param data.tasks - A list of tasks associated with the plan.
-   * @param data.errorLogs - A list of error logs associated with the plan or tasks.
+   * @param data.error_logs - A list of error logs associated with the plan or tasks.
    */
-  constructor(data: { plan: Plan; tasks: Task[]; errorLogs: ErrorLog[] }) {
+  constructor(data: { plan: Plan; tasks: Task[]; error_logs: ErrorLog[] }) {
     this.plan = data.plan;
     this.tasks = data.tasks;
-    this.errorLogs = data.errorLogs;
+    this.error_logs = data.error_logs;
   }
 }

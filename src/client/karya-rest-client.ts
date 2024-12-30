@@ -31,7 +31,7 @@ export class KaryaRestClient {
    */
   constructor(config: ClientConfig) {
     this.client = axios.create();
-    this.baseUrl = config.getBaseUrl();
+    this.baseUrl = config.url.toString();
   }
 
   /**

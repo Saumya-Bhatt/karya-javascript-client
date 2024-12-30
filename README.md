@@ -33,11 +33,7 @@ A list of samples to configure different plans with various actions and hooks ca
     import { ClientConfig } from 'karya-client/client/config.js';
 
    ## point this to where the Karya server is running
-   const config = new ClientConfig({
-       protocol: 'HTTP',
-       host: 'localhost',
-       port: 8080
-   });
+   const config = new ClientConfig(new URL('http://localhost:8080'));
 
    ## For localsetup, a default config is provided as: ClientConfig.dev()
    ```
