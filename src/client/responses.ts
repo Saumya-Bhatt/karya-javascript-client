@@ -24,6 +24,34 @@ export class GetPlanResponse {
 }
 
 /**
+ * Represents the response structure for retrieving a list of plans.
+ * Contains a list of plans, the total number of plans, and the offset for pagination.
+ */
+export class ListPlanResponse {
+  /** A list of plans returned in the response. */
+  plans: Plan[];
+
+  /** The total number of plans available. */
+  total: number;
+
+  /** The offset used for pagination. */
+  offset: number;
+
+  /**
+   * Creates an instance of the `ListPlanResponse` class.
+   * @param data - The data containing the list of plans, total count, and offset.
+   * @param data.plans - The list of plans being returned in the response.
+   * @param data.total - The total number of plans available.
+   * @param data.offset - The offset used for pagination.
+   */
+  constructor(data: { plans: Plan[]; total: number; offset: number }) {
+    this.plans = data.plans;
+    this.total = data.total;
+    this.offset = data.offset;
+  }
+}
+
+/**
  * Represents the response structure for retrieving a plan summary.
  * Contains the plan, a list of tasks, and any associated error logs.
  */
