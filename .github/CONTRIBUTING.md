@@ -13,6 +13,8 @@ Karya is in no way a finished project. There's always room for improvements. Be 
 
 ## Local Setup
 
+> There is also a dummy client provided to test the client. This will return stubbed responses for the requests made.
+
 1. Clone the repository
 2. Make sure node and npm are installed on your system. If not, install them from [here](https://nodejs.org/en/download/)
 2. Install the dependencies
