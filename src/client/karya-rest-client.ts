@@ -115,11 +115,12 @@ export class KaryaRestClient {
   /**
    * Retrieves a list of plans associated with a specific user.
    * @param userId - The ID of the user whose plans are to be retrieved.
+   * @param page - The page number of the results to retrieve.
    * @returns A promise that resolves to a list of plans for the user.
    */
-  async listPlans(userId: string): Promise<Plan[]> {
+  async listPlans(userId: string, page: number): Promise<Plan[]> {
     const url = `${this.baseUrl}/${KaryaRestClient._plansEndpoint}`;
-    const params = { user_id: userId };
+    const params = { user_id: userId, page: page.toString() };
     const response = await this.client.get(url, { params });
     return response.data.map((plan: Plan) => new Plan(plan));
   }
