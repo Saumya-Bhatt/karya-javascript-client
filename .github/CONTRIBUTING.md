@@ -24,6 +24,13 @@ npm install
 node ./samples/<sample-to-run>.js
 ```
 
+## Naming Conventions
+
+- **File Names**: File names should be in `kebab-case` (all lowercase with words separated by hyphens).
+- **Variable Names**: Variable names should be in `snake_case` (all lowercase with words separated by underscores).
+- **Function Names**: Function names should be in `camelCase` (first word in lowercase and subsequent words in uppercase).
+- **Class Names**: Class names should be in `PascalCase` (all words in uppercase).
+
 ## Formatting and Linting
 
 **NOTE:** Only commits with correctly formatted and linted code will ab allowed to merge to main.

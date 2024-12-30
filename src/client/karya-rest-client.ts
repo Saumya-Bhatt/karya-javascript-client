@@ -85,7 +85,7 @@ export class KaryaRestClient {
    * @returns A promise that resolves to the updated plan.
    */
   async updatePlan(request: UpdatePlanRequest): Promise<Plan> {
-    const url = `${this.baseUrl}/${KaryaRestClient._plansEndpoint}/${request.planId}`;
+    const url = `${this.baseUrl}/${KaryaRestClient._plansEndpoint}`;
     const response = await this.client.patch(url, request);
     return new Plan(response.data);
   }
