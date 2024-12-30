@@ -122,7 +122,7 @@ export class KaryaRestClient {
     const url = `${this.baseUrl}/${KaryaRestClient._plansEndpoint}`;
     const params = { user_id: userId, page: page.toString() };
     const response = await this.client.get(url, { params });
-    return response.data.map((plan: Plan) => new Plan(plan));
+    return new ListPlanResponse(response.data);
   }
 
   /**
