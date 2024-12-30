@@ -79,28 +79,28 @@ export class SubmitPlanRequest {
  */
 export class UpdatePlanRequest {
   /** The unique ID of the plan to be updated. */
-  planId: string;
+  plan_id: string;
 
   /** The new period time for the plan (e.g., "daily", "weekly"). Optional. */
-  periodTime?: string;
+  period_time?: string;
 
   /** The new maximum number of failure retries for the plan. Optional. */
-  maxFailureRetry?: number;
+  max_failure_retry?: number;
 
   /** The new list of hooks to be associated with the plan. Optional. */
   hooks?: Hook[];
 
   /**
    * Creates an instance of the `UpdatePlanRequest` class.
-   * @param planId - The ID of the plan to be updated.
-   * @param periodTime - The new period time for the plan. Optional.
-   * @param maxFailureRetry - The new maximum number of failure retries. Optional.
+   * @param plan_id - The ID of the plan to be updated.
+   * @param period_time - The new period time for the plan. Optional.
+   * @param max_failure_retry - The new maximum number of failure retries. Optional.
    * @param hooks - The new list of hooks for the plan. Optional.
    */
-  constructor(planId: string, periodTime?: string, maxFailureRetry?: number, hooks?: Hook[]) {
-    this.planId = planId;
-    this.periodTime = periodTime;
-    this.maxFailureRetry = maxFailureRetry;
+  constructor(plan_id: string, period_time?: string, max_failure_retry?: number, hooks?: Hook[]) {
+    this.plan_id = plan_id;
+    this.period_time = period_time;
+    this.max_failure_retry = max_failure_retry;
     this.hooks = hooks;
   }
 }

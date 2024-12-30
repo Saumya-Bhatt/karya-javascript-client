@@ -1,12 +1,8 @@
-import { Protocol } from '../entities/constants.js';
-
-
 /**
  * Represents the configuration for a client connection.
  * This configuration includes the protocol, host, and port to use for connecting to a server.
  */
 export class ClientConfig {
-
   /** The url object */
   url: URL;
 
